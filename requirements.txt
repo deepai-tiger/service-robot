@@ -1,0 +1,12 @@
+aiortc==1.6.0
+av==11.0.0
+firebase-admin==6.0.0
+google-cloud-firestore==2.7.0
+numpy==1.24.2
+picamera2==0.3.27
+sounddevice==0.4.6
+AWSIoTPythonSDK==1.5.4
+RPi.GPIO==0.7.1a4
+selenium==4.33.0
+Flask==2.2.2
+aioice==0.10.1

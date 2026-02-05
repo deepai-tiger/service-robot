@@ -1,0 +1,10 @@
+# Ignore cert folder
+code/cert/
+venv/
+code/tests/ravindu/automation/*.json
+code/tests/ravindu/automation2/*.json
+code/tests/ravindu/autoBackup/*.json
+code/main/*.json
+code/tests/ravindu/video_webrtc_try/signaling-server/package-lock.json
+code/main/utils/*.json
+code/tests/ravindu/autonav/calibration_images/*.jpg

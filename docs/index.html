@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Robot Waiter System</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <span>Robot Waiter</span>
+        
+      </a>
+      <!-- NAVIGATION BAR -->
+      <nav class="main-nav">
+        <a class="main-nav-link" href="#home">Home</a>
+        <a class="main-nav-link" href="#about">About</a>
+        <a class="main-nav-link" href="#system">High-Level Diagram</a>
+        <a class="main-nav-link" href="#budget">Budget</a>
+        <a class="main-nav-link" href="#testing">Testing</a>
+        <a class="main-nav-link" href="#team">Team</a>
+    </nav>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+       <div class="parallax-wrapper">
+      <section id="home" class="section-hero">
+        <div id="particles-js"></div>
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="./assets/videos/robot-bg-particles.mp4" type="video/mp4">
+    </video>
+  </div>
+        <div class="hero-box">
+          <div class="hero-text-box">
+            <a href="#about" class="cta-button">Explore More <i class="ri-arrow-right-line"></i></a>
+            <h1>Robot Waiter System</h1>
+            
+            <p>
+
+            </p>
+          </div>
+          <div class="hero-image-box">
+            <video width="650px" height="auto" controls autoplay loop>
+              <source src="./images/final-compiled-video_dR55cIL0.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="section-about">
+        <h1>About the Robot Waiter</h1>
+        <p>
+          In the fast-paced restaurant industry, ensuring quick and efficient service is crucial. Traditional waiter systems face challenges such as delays, human errors, and high labor costs. Our project, "The Robot Waiter," aims to solve these issues by introducing a remotely controlled robot that can deliver orders to customers efficiently. Unlike fully automated systems, this robot offers a balance of human oversight and robotic precision, making it adaptable to dynamic environments.
+
+The impact of this solution includes improved service efficiency, reduced labor dependency, and an enhanced customer experience. By leveraging online control systems, restaurants can operate the robot with minimal training and flexibility, even in complex layouts.
+        </p>
+      </section>
+
+      
+
+      <!-- SYSTEM DESIGN SECTION -->
+      <section id="system" class="section-system">
+        <h1>High- Level Diagram</h1>
+        <div class="system-img-container">
+          <img src="./images/image.png" alt="System Design Image" />
+        </div>
+      </section>
+
+      <section id="system-flow" class="section-system-flow">
+  <h1>System Flow Overview</h1>
+  <div class="flow-container">
+    <div class="flow-step" data-desc="Admin panel allows managing employees and robots. Acts as the central controller.">
+      <i class="ri-user-settings-line"></i>
+      <h3>Admin</h3>
+    </div>
+    <div class="flow-step" data-desc="Employees can register/login and access robot control interface.">
+      <i class="ri-user-line"></i>
+      <h3>Employee Interface</h3>
+    </div>
+    <div class="flow-step" data-desc="After login, employee sends MQTT request with robot ID to AWS.">
+      <i class="ri-send-plane-line"></i>
+      <h3>MQTT to AWS</h3>
+    </div>
+    <div class="flow-step" data-desc="Robot logs in and shares its info with the backend via WebSocket.">
+      <i class="ri-robot-line"></i>
+      <h3>Robot Interface</h3>
+    </div>
+    <div class="flow-step" data-desc="AWS listens to employee request via subscribed endpoint. Sends it to robot.">
+      <i class="ri-cloud-line"></i>
+      <h3>AWS Routing</h3>
+    </div>
+    <div class="flow-step" data-desc="Robot receives and executes commands from the employee.">
+      <i class="ri-wifi-line"></i>
+      <h3>Real-Time Control</h3>
+    </div>
+  </div>
+  <p id="step-desc" class="flow-tooltip">Hover over a step to see more info</p>
+</section>
+
+<!-- CIRCUIT DIAGRAM SECTION -->
+<section id="circuit" class="section-circuit">
+  <h1>Circuit Diagram</h1>
+  <div class="circuit-img-container">
+    <img src="./images/circuit_image (3).png" alt="Circuit Diagram" />
+  </div>
+
+  <div class="circuit-components">
+    <div class="component-card">
+      <i class="ri-cpu-line"></i>
+      <h3>Raspberry Pi 3B</h3>
+      <p>Acts as the brain of the robot, handling processing and network communication via MQTT/WebSockets.</p>
+    </div>
+    <div class="component-card">
+      <i class="ri-battery-charge-line"></i>
+      <h3>12V Battery</h3>
+      <p>Powers the entire robot, providing necessary voltage to motors, sensors, and the processing unit.</p>
+    </div>
+    <div class="component-card">
+      <i class="ri-sensor-line"></i>
+      <h3>HC-SR04 Sensors</h3>
+      <p>Used for obstacle detection and navigation, ensuring smooth delivery without collisions.</p>
+    </div>
+    <div class="component-card">
+      <i class="fas fa-microchip"></i>
+      <h3>Motor Driver</h3>
+      <p>Controls the movement of the robot by adjusting voltage and current to the gear motors.</p>
+    </div>
+    <div class="component-card">
+      <i class="ri-tools-line"></i>
+      <h3>Buck Converter</h3>
+      <p>Steps down 12V to 5V for powering the Raspberry Pi safely and efficiently.</p>
+    </div>
+    <div class="component-card">
+      <i class="ri-camera-line"></i>
+      <h3>Camera Module</h3>
+      <p>Captures real-time video for visual monitoring and helps with remote navigation.</p>
+    </div>
+  </div>
+</section>
+
+
+
+ <!-- TIMELINE SECTION -->
+      <section id="timeline" class="section-timeline">
+        <h1>Project Timeline</h1>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="content">
+              <h3>Project Proposal</h3>
+              <p>Initial idea and proposal submission.</p>
+              <span>January 2025</span>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="content">
+              <h3>System Design</h3>
+              <p>High-level architecture finalized.</p>
+              <span>February 2025</span>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="content">
+              <h3>Hardware Assembly</h3>
+              <p>Robot structure built with sensors.</p>
+              <span>March 2025</span>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="content">
+              <h3>Software Integration</h3>
+              <p>Frontend and backend integrated.</p>
+              <span>April 2025</span>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="content">
+              <h3>Testing & Evaluation</h3>
+              <p>System tested and finalized.</p>
+              <span>May 2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="budget" class="section-budget">
+  <h1>Budget</h1>
+  <div class="budget-table-container">
+    <table class="modern-budget-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Unit Cost (LKR)</th>
+          <th>Total Cost (LKR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">User Interaction</td>
+          <td>Camera Module</td>
+          <td>Raspberry Pi Camera Module 1</td>
+          <td>1</td>
+          <td>1800</td>
+          <td>1800</td>
+        </tr>
+        <tr>
+          <td>Display</td>
+          <td>HDMI Display</td>
+          <td>1</td>
+          <td>6000</td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Power System</td>
+          <td>Battery</td>
+          <td>12V UPS Battery</td>
+          <td>1</td>
+          <td>5000</td>
+          <td>5000</td>
+        </tr>
+        <tr>
+          <td>Charger</td>
+          <td>12V Charger</td>
+          <td>1</td>
+          <td>2500</td>
+          <td>2500</td>
+        </tr>
+        <tr>
+          <td>Buck Converter</td>
+          <td>12V to 5V Converter</td>
+          <td>1</td>
+          <td>150</td>
+          <td>150</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Navigation</td>
+          <td>Motors</td>
+          <td>JGB 520 100 RPM Gear Motors</td>
+          <td>4</td>
+          <td>1390</td>
+          <td>5560</td>
+        </tr>
+        <tr>
+          <td>Wheels</td>
+          <td>Rubber Wheels</td>
+          <td>4</td>
+          <td>190</td>
+          <td>760</td>
+        </tr>
+        <tr>
+          <td>Ultrasonic Sensors</td>
+          <td>HC-SR04</td>
+          <td>2</td>
+          <td>500</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Structure</td>
+          <td>Tray Frame</td>
+          <td>Aluminium Frame</td>
+          <td>1</td>
+          <td>2000</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>Chassis</td>
+          <td>Wooden Chassis + Assembly Cost</td>
+          <td>1</td>
+          <td>1000</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>Lathe Works</td>
+          <td>Axle Lathe Processing</td>
+          <td>4</td>
+          <td>600</td>
+          <td>2400</td>
+        </tr>
+        <tr>
+          <td>Processing Unit</td>
+          <td>Raspberry Pi 3 B</td>
+          <td>1.4GHz 64-bit Quad-Core Processor</td>
+          <td>1</td>
+          <td>20000</td>
+          <td>20000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" style="text-align: right; font-weight: bold;">Total:</td>
+          <td style="font-weight: bold;">49,970 LKR</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+
+      <!-- TESTING SECTION -->
+      <section id="testing" class="section-testing">
+        <h1>Testing</h1>
+        <h2>Hardware Testing</h2>
+        <p>
+        <div class="system-img-container">
+          <img src="./images/Screenshot 2025-07-18 064407.png" alt="System Design Image" />
+        </div>
+          
+We conducted individual tests for each sensor to ensure proper functionality:
+
+Camera Module: Verified video streaming capability using IoT Core, ensuring real-time image capture and transmission to the frontend.
+Ultrasonic Sensors: Tested distance measurement accuracy, sending real-time obstacle data via AWS IoT Core.
+Gyroscope Sensor: Evaluated motion tracking and orientation updates, integrating it with IoT Core for real-time monitoring in the frontend.</p>
+<h2>Software Testing</h2>
+<div class="system-img-container">
+          <img src="./images/WhatsApp Image 2025-07-18 at 06.51.51_63d8f364.jpg" alt="System Design Image" />
+        </div>
+<p>       
+MQTT on AWS IoT Core: Verified stable communication between the robot and the frontend by configuring MQTT publishers (robot commands) and subscribers (robot status updates).
+AWS Cognito Authentication: Tested the ability to gain temporary access tokens for the React frontend, reducing the need for constant requests through our Node.js server. This enhances efficiency while ensuring secure access control.
+WebSockets Integration: Ensured real-time data exchange between the frontend and the robot, improving response times and interaction reliability.
+        </p>
+      </section>
+
+           <!-- TEAM SECTION -->
+       <!-- SUPERVISOR SECTION -->
+      <section class="section-team supervisor-section">
+        <h1>Supervisor</h1>
+        <div class="supervisor-card">
+          <div class="img-wrapper">
+            <img class="supervisor-img" src="./images/navina.jpg" alt="Supervisor" />
+          </div>
+          <p class="name">Dr. Isuru Nawinne</p>
+          <div class="social-media-links">
+  <a href="https://www.researchgate.net/profile/Isuru-Nawinne" target="_blank">
+  <i class="fab fa-researchgate fa-2x"></i>
+</a>
+  <a href="https://www.linkedin.com/in/isuru-nawinne-73302833/" target="_blank">
+    <i class="ri-linkedin-box-fill ri-2x"></i>
+  </a>
+  <a href="isurunawinne@eng.pdn.ac.lk" target="_blank">
+    <i class="ri-mail-fill ri-2x"></i>
+  </a>
+</div>
+
+      </section>
+<section id="team" class="section-team">
+  <h1>Our Team</h1>
+  <div class="team-container">
+    <!-- Team Member 1 -->
+    <div class="team-card">
+      <div class="img-wrapper">
+        <img class="team-img" src="./images/profile_picture.jpeg" alt="Team Member" />
+      </div>
+      <p class="name">P.A.WICKRAMARACHCHI</p>
+      <p class="role">E/20/434</p>
+      <div class="social-media-links">
+        <a href="https://github.com/E20434" target="_blank">
+          <i class="ri-github-fill ri-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/p-a-wickramaarachchi-32a734280/" target="_blank">
+          <i class="ri-linkedin-box-fill ri-2x"></i>
+        </a>
+        <a href="mailto:johndoe@example.com" target="_blank">
+          <i class="ri-mail-fill ri-2x"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="team-card">
+      <div class="img-wrapper">
+        <img class="team-img" src="./images/member1.jpg" alt="Team Member" />
+      </div>
+      <p class="name">A.I.FERNANDO</p>
+      <p class="role">E/20/100</p>
+      <div class="social-media-links">
+        <a href="https://github.com/AIFERNANDOE20100" target="_blank">
+          <i class="ri-github-fill ri-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/fernando-akash-induwara-06a6281a6/" target="_blank">
+          <i class="ri-linkedin-box-fill ri-2x"></i>
+        </a>
+        <a href="mailto:johndoe@example.com" target="_blank">
+          <i class="ri-mail-fill ri-2x"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 3 -->
+    <div class="team-card">
+      <div class="img-wrapper">
+        <img class="team-img" src="./images/member2.jpg" alt="Team Member" />
+      </div>
+      <p class="name">PATHIRAGE R.S</p>
+      <p class="role">E/20/280</p>
+      <div class="social-media-links">
+        <a href="https://github.com/RavinduRepo" target="_blank">
+          <i class="ri-github-fill ri-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ravindu-pathirage-228b66254/" target="_blank">
+          <i class="ri-linkedin-box-fill ri-2x"></i>
+        </a>
+        <a href="mailto:johndoe@example.com" target="_blank">
+          <i class="ri-mail-fill ri-2x"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 4 -->
+    <div class="team-card">
+      <div class="img-wrapper">
+        <img class="team-img" src="./images/member3.jpg" alt="Team Member" />
+      </div>
+      <p class="name">MALINTHA K.M.K</p>
+      <p class="role">E/20/243</p>
+      <div class="social-media-links">
+        <a href="https://github.com/kushanmalintha" target="_blank">
+          <i class="ri-github-fill ri-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kushan-malintha-7230b12b9/" target="_blank">
+          <i class="ri-linkedin-box-fill ri-2x"></i>
+        </a>
+        <a href="mailto:johndoe@example.com" target="_blank">
+          <i class="ri-mail-fill ri-2x"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+       
+    </main>
+
+    <script src="./script.js"></script>
+
+    <div class="loader-wrapper">
+  <div class="loader">
+    <div class="loader-inner">
+      <div class="loader-circle"></div>
+      <div class="loader-text">Loading</div>
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Robot Waiter Project. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#team">Team</a>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+</html>

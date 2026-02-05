@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebRTC Viewer</title>
+</head>
+<body>
+  <h2>Camera Feed</h2>
+  <video id="remoteVideo" autoplay playsinline></video>
+  <script>
+    const ws = new WebSocket('ws://' + location.host);
+    const pc = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] });
+    const video = document.getElementById('remoteVideo');
+
+    ws.onopen = () => ws.send(JSON.stringify({ role: 'client' }));
+
+    pc.ontrack = (event) => { video.srcObject = event.streams[0]; };
+    pc.onicecandidate = (e) => {
+      if (e.candidate) {
+        ws.send(JSON.stringify({ type: 'ice', candidate: e.candidate, to: 'pi' }));
+      }
+    };
+
+    ws.onmessage = async (msg) => {
+      const data = JSON.parse(msg.data);
+      if (data.type === 'offer') {
+        await pc.setRemoteDescription(new RTCSessionDescription(data));
+        const answer = await pc.createAnswer();
+        await pc.setLocalDescription(answer);
+        ws.send(JSON.stringify({ ...answer, role: 'client', type: 'answer' }));
+      } else if (data.type === 'ice') {
+        pc.addIceCandidate(data.candidate);
+      }
+    };
+  </script>
+</body>
+</html>

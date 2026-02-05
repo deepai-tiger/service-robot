@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebRTC Caller</title>
+</head>
+<body>
+  <h2>Caller</h2>
+
+  <!-- We keep this hidden so JS can use it -->
+  <video id="webcamVideo" hidden></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <button id="webcamButton">Start Mic</button>
+  <button id="callButton" disabled>Create Call</button>
+  <input id="callInput" readonly placeholder="Call ID" />
+  <button id="hangupButton" disabled>Hangup</button>
+
+  <script type="module" src="/caller.js"></script>
+</body>
+</html>

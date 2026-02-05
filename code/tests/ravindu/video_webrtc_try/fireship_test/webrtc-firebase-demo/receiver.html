@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebRTC Receiver</title>
+</head>
+<body>
+  <h2>Receiver</h2>
+
+  <video id="webcamVideo" autoplay playsinline muted></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <button id="webcamButton">Start Camera + Mic</button>
+  <input id="callInput" placeholder="Enter Call ID" />
+  <button id="answerButton" disabled>Answer</button>
+  <button id="hangupButton" disabled>Hangup</button>
+
+  <script type="module" src="/receiver.js"></script>
+</body>
+</html>

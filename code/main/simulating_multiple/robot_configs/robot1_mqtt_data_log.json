@@ -1,0 +1,10 @@
+{
+  "// Example 1: robot1_mqtt_data_log.json": "",
+  "data": {
+    "user": {
+      "awsRegion": "ap-southeast-2",
+      "awsHost": "a2cdp9hijgdiig-ats.iot.ap-southeast-2.amazonaws.com",
+      "topic": "robot/ap-southeast-2:e70e9d78-b157-cf3d-911d-269d9d94c9f5/control"
+    }
+  }
+}
